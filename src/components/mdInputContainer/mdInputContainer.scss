@@ -70,6 +70,13 @@ $input-size: 32px;
     }
   }
 
+  input {
+    &[type="date"],
+    &[type="time"] {
+      font-size: 16px;
+    }
+  }
+
   textarea {
     min-height: 32px;
     max-height: 230px;
@@ -237,6 +244,12 @@ $input-size: 32px;
   &.md-has-select:hover {
     .md-select:not(.md-disabled):after {
       color: rgba(#000, .87);
+    }
+  }
+
+  &.md-has-file {
+    label {
+      left: 36px;
     }
   }
 }
