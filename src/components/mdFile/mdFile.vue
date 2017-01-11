@@ -1,5 +1,7 @@
 <template>
   <div class="md-file" @click="openPicker">
+    <md-icon>attach_file</md-icon>
+
     <md-input
       readonly
       v-model="filename"
@@ -8,8 +10,6 @@
       :disabled="disabled"
       ref="textInput">
     </md-input>
-
-    <md-icon>attach_file</md-icon>
 
     <input
       type="file"

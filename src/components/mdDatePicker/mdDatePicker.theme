@@ -1,5 +1,5 @@
 .THEME_NAME {
-  &.md-date-picker {
-
+  &.md-date-picker-popup {
+    background-color: #{'BACKGROUND-COLOR'};
   }
 }

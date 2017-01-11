@@ -30,7 +30,9 @@
       <div slot="example">
         <example-box card-title="Default">
           <div class="datepicker-demo" slot="demo">
-            <md-date-picker />
+            <md-input-container>
+              <md-date-picker />
+            </md-input-container>
           </div>
 
           <div slot="code">

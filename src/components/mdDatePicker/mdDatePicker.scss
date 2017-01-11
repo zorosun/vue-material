@@ -1,5 +1,26 @@
 @import '../../core/stylesheets/variables.scss';
 
 .md-date-picker {
+  display: flex;
+  flex: 1;
 
+  .md-icon {
+    cursor: pointer;
+  }
+
+  input::-webkit-calendar-picker-indicator{
+    display: none;
+  }
+}
+
+.md-date-picker-popup {
+  overflow: hidden;
+  position: fixed;
+  z-index: 120;
+  border-radius: 2px;
+  box-shadow: $material-shadow-4dp;
+}
+
+.md-date-picker-backdrop {
+  position: fixed;
 }

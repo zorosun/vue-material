@@ -4,6 +4,10 @@
   display: flex;
   flex: 1;
 
+  .md-icon {
+    cursor: pointer;
+  }
+
   input[type="file"] {
     width: 1px;
     height: 1px;
@@ -13,9 +17,5 @@
     position: absolute;
     clip: rect(0 0 0 0);
     border: 0;
-  }
-
-  .md-icon {
-    cursor: pointer;
   }
 }
