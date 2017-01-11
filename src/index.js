@@ -7,6 +7,7 @@ import MdButtonToggle from './components/mdButtonToggle';
 import MdCard from './components/mdCard';
 import MdCheckbox from './components/mdCheckbox';
 import MdChips from './components/mdChips';
+import MdDatePicker from './components/mdDatePicker';
 import MdDialog from './components/mdDialog';
 import MdDivider from './components/mdDivider';
 import MdFile from './components/mdFile';
@@ -41,6 +42,7 @@ const options = {
   MdCard,
   MdCheckbox,
   MdChips,
+  MdDatePicker,
   MdDialog,
   MdDivider,
   MdFile,
