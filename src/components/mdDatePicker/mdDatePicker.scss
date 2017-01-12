@@ -1,6 +1,7 @@
 @import '../../core/stylesheets/variables.scss';
+@import '../../core/stylesheets/mixins.scss';
 
-.md-date-picker {
+.md-datepicker {
   display: flex;
   flex: 1;
 
@@ -13,14 +14,156 @@
   }
 }
 
-.md-date-picker-popup {
-  overflow: hidden;
+.md-datepicker-backdrop {
+  display: none;
   position: fixed;
   z-index: 120;
-  border-radius: 2px;
-  box-shadow: $material-shadow-4dp;
+
+  @include layout-small {
+    display: block;
+  }
 }
 
-.md-date-picker-backdrop {
+.md-datepicker-popup {
+  display: flex;
+  overflow: hidden;
   position: fixed;
+  z-index: 81;
+  background-clip: padding-box;
+  border-radius: 2px;
+  box-shadow: $material-shadow-4dp;
+  opacity: 0;
+  transform: translate3D(0, -16px, 0);
+  transition: opacity $swift-ease-out-duration $swift-ease-out-timing-function,
+              transform .8s $swift-ease-out-timing-function;
+
+  @include layout-small {
+    flex-direction: column;
+    z-index: 121;
+  }
+
+  @include layout-small {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate3d(-50%, -55%, 0);
+  }
+
+  &.md-active {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+    transition: $swift-ease-out;
+    transition-property: opacity, transform;
+
+    @include layout-small {
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+}
+
+.md-datepicker-header {
+  width: 172px;
+  padding: 16px;
+
+  @include layout-small {
+    width: auto;
+    padding: 16px 20px;
+  }
+
+  .md-datepicker-year {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    line-height: 24px;
+  }
+
+  .md-datepicker-date {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.2em;
+  }
+
+  .md-datepicker-dayname {
+    display: block;
+
+    @include layout-small {
+      display: inline-block;
+    }
+  }
+}
+
+.md-datepicker-calendar {
+  padding: 8px;
+  text-align: center;
+
+  .md-datepicker-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .md-button {
+    margin: 0;
+  }
+
+  .md-datepicker-week-days {
+    padding: 8px 0;
+    margin: 0 -4px;
+    display: flex;
+    font-size: 12px;
+
+    @include layout-small {
+      margin: 0;
+    }
+
+    span {
+      flex: 1;
+    }
+  }
+
+  .md-datepicker-days {
+    max-width: 364px;
+    margin: 0 -4px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include layout-small {
+      max-width: 280px;
+      margin: 0;
+    }
+
+    .md-button {
+      $button-dense-height: 32px;
+
+      width: $button-dense-height;
+      min-width: $button-dense-height;
+      max-width: $button-dense-height;
+      height: $button-dense-height;
+      min-height: $button-dense-height;
+      margin: 0 10px;
+      padding: 0;
+      flex: 1 1 (100% / 7);
+      transition: $swift-ease-out;
+      font-size: 12px;
+      line-height: $button-dense-height;
+
+      @include layout-small {
+        $button-height: 40px;
+
+        width: $button-height;
+        min-width: $button-height;
+        max-width: $button-height;
+        height: $button-height;
+        min-height: $button-height;
+        margin: 0;
+        line-height: $button-height;
+      }
+
+      &:not(.md-empty):hover,
+      &.md-selected,
+      &.md-today {
+        font-weight: 700;
+      }
+    }
+  }
 }

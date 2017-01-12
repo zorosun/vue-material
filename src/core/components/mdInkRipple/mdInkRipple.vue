@@ -148,9 +148,6 @@
         }
       },
       init() {
-        this.rippleElement = this.$el;
-        this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
-
         if (!this.parentElement) {
           this.$destroy();
         } else {
@@ -168,7 +165,10 @@
       }
     },
     mounted() {
-      window.setTimeout(() => {
+      this.$nextTick(() => {
+        this.rippleElement = this.$el;
+        this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
+
         if (!this.disabled) {
           this.init();
         } else {
@@ -178,7 +178,7 @@
         this.$nextTick(() => {
           this.mounted = true;
         });
-      }, 100);
+      });
     },
     beforeDestroy() {
       this.destroy();

@@ -1,4 +1,5 @@
 /* Code Components */
+import Material from './material';
 import MdTheme from './components/mdTheme';
 import MdInkRipple from './components/mdInkRipple';
 import CoreTheme from './stylesheets/core.theme';
@@ -12,6 +13,9 @@ export default function install(Vue) {
 
     return;
   }
+
+  Vue.material = Material;
+  Vue.prototype.$material = Material;
 
   install.installed = true;
 

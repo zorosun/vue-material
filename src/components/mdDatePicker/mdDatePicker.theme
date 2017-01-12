@@ -1,5 +1,34 @@
 .THEME_NAME {
-  &.md-date-picker-popup {
-    background-color: #{'BACKGROUND-COLOR'};
+  &.md-datepicker-popup {
+    .md-datepicker-body {
+      background-color: #{'BACKGROUND-COLOR'};
+    }
+
+    .md-datepicker-header {
+      background-color: #{'PRIMARY-COLOR'};
+      color: #{'PRIMARY-CONTRAST-0.9999'};
+    }
+
+    .md-datepicker-week-days {
+      color: #{'BACKGROUND-CONTRAST-0.54'};
+    }
+
+    .md-datepicker-days {
+      color: #{'BACKGROUND-CONTRAST-0.8'};
+
+      .md-ink-ripple {
+        color: #{'PRIMARY-CONTRAST'};
+      }
+
+      .md-today {
+        color: #{'PRIMARY-COLOR'};
+      }
+
+      .md-button:not(.md-empty):hover,
+      .md-selected {
+        background-color: #{'PRIMARY-COLOR'};
+        color: #{'PRIMARY-CONTRAST'};
+      }
+    }
   }
 }
