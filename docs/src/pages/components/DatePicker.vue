@@ -31,7 +31,7 @@
         <example-box card-title="Default">
           <div class="datepicker-demo" slot="demo">
             <md-input-container>
-              <md-date-picker />
+              <md-datepicker v-model="date" />
             </md-input-container>
           </div>
 
@@ -53,7 +53,7 @@
 <script>
   export default {
     data: () => ({
-
+      date: new Date()
     })
   };
 </script>

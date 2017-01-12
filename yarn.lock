@@ -1439,6 +1439,10 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+date-fns@^1.25.0:
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.25.0.tgz#9af706bccbc7b76d796f0e93190802c204ba5efa"
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -3549,12 +3553,6 @@ postcss-reduce-transforms@^1.0.3:
     postcss "^5.0.8"
     postcss-value-parser "^3.0.1"
 
-postcss-scss@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-0.4.0.tgz#087c052c529b9270d9580bd1248a0f93d3b40d57"
-  dependencies:
-    postcss "^5.2.5"
-
 postcss-selector-parser@^2.0.0:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-2.2.2.tgz#3d70f5adda130da51c7c0c2fc023f56b1374fe08"
@@ -3592,7 +3590,7 @@ postcss-zindex@^2.0.1:
     postcss "^5.0.4"
     uniqs "^2.0.0"
 
-postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.5, postcss@^5.2.8:
+postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.8:
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.8.tgz#05720c49df23c79bda51fd01daeb1e9222e94390"
   dependencies:
@@ -3992,10 +3990,6 @@ sass-loader@^4.1.1:
 sax@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
-
-scopedQuerySelectorShim@lazd/scopedQuerySelectorShim:
-  version "0.0.0"
-  resolved "https://codeload.github.com/lazd/scopedQuerySelectorShim/tar.gz/0ef4855a7944207510cdc0375a43956b2fc18410"
 
 select@^1.0.6:
   version "1.1.0"

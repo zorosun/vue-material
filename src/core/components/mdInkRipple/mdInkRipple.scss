@@ -22,7 +22,7 @@
   will-change: background-color, opacity, transform, width, height, top, left;
 
   &.md-active {
-    animation: ripple .85s $swift-ease-out-timing-function forwards;
+    animation: ripple 1s $swift-ease-out-timing-function forwards;
 
     &.md-fadeout {
       opacity: 0 !important;
