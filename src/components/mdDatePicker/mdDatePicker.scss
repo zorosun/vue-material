@@ -38,14 +38,15 @@
               transform .8s $swift-ease-out-timing-function;
 
   @include layout-small {
-    flex-direction: column;
-    z-index: 121;
-  }
-
-  @include layout-small {
+    box-shadow: $material-shadow-14dp;
     top: 50% !important;
     left: 50% !important;
+    z-index: 121;
     transform: translate3d(-50%, -55%, 0);
+  }
+
+  @include layout-xsmall {
+    flex-direction: column;
   }
 
   &.md-active {
@@ -64,7 +65,7 @@
   width: 172px;
   padding: 16px;
 
-  @include layout-small {
+  @include layout-xsmall {
     width: auto;
     padding: 16px 20px;
   }
@@ -86,7 +87,7 @@
   .md-datepicker-dayname {
     display: block;
 
-    @include layout-small {
+    @include layout-xsmall {
       display: inline-block;
     }
   }
@@ -112,7 +113,7 @@
     display: flex;
     font-size: 12px;
 
-    @include layout-small {
+    @include layout-xsmall {
       margin: 0;
     }
 
@@ -122,13 +123,13 @@
   }
 
   .md-datepicker-days {
-    max-width: 364px;
+    width: 364px;
     margin: 0 -4px;
     display: flex;
     flex-wrap: wrap;
 
-    @include layout-small {
-      max-width: 280px;
+    @include layout-xsmall {
+      width: 280px;
       margin: 0;
     }
 
@@ -147,7 +148,7 @@
       font-size: 12px;
       line-height: $button-dense-height;
 
-      @include layout-small {
+      @include layout-xsmall {
         $button-height: 40px;
 
         width: $button-height;
