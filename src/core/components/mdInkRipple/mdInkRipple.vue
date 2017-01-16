@@ -148,6 +148,8 @@
         }
       },
       init() {
+        this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
+
         if (!this.parentElement) {
           this.$destroy();
         } else {
@@ -167,7 +169,6 @@
     mounted() {
       this.$nextTick(() => {
         this.rippleElement = this.$el;
-        this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
 
         if (!this.disabled) {
           this.init();
@@ -175,9 +176,7 @@
           this.destroy();
         }
 
-        this.$nextTick(() => {
-          this.mounted = true;
-        });
+        this.mounted = true;
       });
     },
     beforeDestroy() {
