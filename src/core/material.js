@@ -6,6 +6,9 @@ export default new Vue({
     currentTheme: null,
     inkRipple: true,
     locale: {
+      startYear: 1899,
+      endYear: 2099,
+      dateFormat: 'YYYY-MM-DD',
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       shortDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       shorterDays: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],

@@ -70,14 +70,18 @@
     padding: 16px 20px;
   }
 
-  .md-datepicker-year {
+  .md-datepicker-year-select {
+    cursor: pointer;
+    transition: $swift-ease-out;
     font-size: 16px;
     font-weight: 700;
     letter-spacing: .01em;
     line-height: 24px;
   }
 
-  .md-datepicker-date {
+  .md-datepicker-date-select {
+    cursor: pointer;
+    transition: $swift-ease-out;
     font-size: 32px;
     font-weight: 900;
     letter-spacing: 0;
@@ -90,6 +94,14 @@
     @include layout-xsmall {
       display: inline-block;
     }
+  }
+}
+
+.md-datepicker-body {
+  width: 372px;
+
+  @include layout-xsmall {
+    width: 296px;
   }
 }
 
@@ -123,13 +135,11 @@
   }
 
   .md-datepicker-days {
-    width: 364px;
     margin: 0 -4px;
     display: flex;
     flex-wrap: wrap;
 
     @include layout-xsmall {
-      width: 280px;
       margin: 0;
     }
 
@@ -165,6 +175,32 @@
       &.md-today {
         font-weight: 700;
       }
+    }
+  }
+}
+
+.md-datepicker-years {
+  max-height: 260px;
+  padding: 0 8px 7px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+
+  @include layout-xsmall {
+    flex-flow: column;
+  }
+}
+
+.md-datepicker-year {
+  min-width: 68px;
+  margin: 8px 0;
+  flex: 1;
+
+  &.md-primary {
+    font-weight: 900;
+
+    @include layout-xsmall {
+      font-size: 22px;
     }
   }
 }
