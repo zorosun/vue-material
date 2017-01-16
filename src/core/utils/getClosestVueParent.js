@@ -1,9 +1,5 @@
 let getClosestVueParent = ($parent, cssClass) => {
-  if (!$parent || !$parent.$el) {
-    return false;
-  }
-
-  if ($parent._uid === 0) {
+  if (!$parent || !$parent.$el || !$parent.$el.classList || $parent._uid === 0) {
     return false;
   }
 
