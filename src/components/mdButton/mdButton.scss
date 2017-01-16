@@ -147,6 +147,10 @@ $button-icon-size: 40px;
       box-shadow: $material-shadow-5dp;
     }
 
+    &.md-fixed {
+      position: fixed;
+    }
+
     &.md-mini {
       width: $button-fab-size-mini;
       height: $button-fab-size-mini;
