@@ -1,5 +1,25 @@
 .THEME_NAME {
   &.md-datepicker-popup {
+    &.md-select-date {
+      .md-datepicker-year-select {
+        color: #{'PRIMARY-CONTRAST-0.54'};
+
+        &:hover {
+          color: #{'PRIMARY-CONTRAST-0.87'};
+        }
+      }
+    }
+
+    &.md-select-year {
+      .md-datepicker-date-select {
+        color: #{'PRIMARY-CONTRAST-0.54'};
+
+        &:hover {
+          color: #{'PRIMARY-CONTRAST-0.87'};
+        }
+      }
+    }
+
     .md-datepicker-body {
       background-color: #{'BACKGROUND-COLOR'};
     }
