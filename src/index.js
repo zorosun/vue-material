@@ -1,4 +1,5 @@
 import MdCore from './core';
+
 import MdAvatar from './components/mdAvatar';
 import MdBackdrop from './components/mdBackdrop';
 import MdBottomBar from './components/mdBottomBar';
@@ -30,6 +31,8 @@ import MdTabs from './components/mdTabs';
 import MdToolbar from './components/mdToolbar';
 import MdTooltip from './components/mdTooltip';
 import MdWhiteframe from './components/mdWhiteframe';
+
+import MdAppTemplate from './templates/mdAppTemplate';
 
 const options = {
   MdCore,
@@ -63,7 +66,8 @@ const options = {
   MdTabs,
   MdToolbar,
   MdTooltip,
-  MdWhiteframe
+  MdWhiteframe,
+  MdAppTemplate
 };
 
 options.install = (Vue) => {

@@ -1,0 +1,30 @@
+@import '../../core/stylesheets/variables.scss';
+
+.md-app-template {
+  display: flex;
+  flex-flow: column;
+  overflow: auto;
+
+  &.md-fixed {
+    overflow: auto;
+
+    .md-content {
+      overflow: auto;
+    }
+  }
+
+  &.md-scroll-reveal {
+    transform: translateZ(0);
+  }
+
+  .md-toolbar {
+    position: relative;
+    z-index: 2;
+  }
+
+  .md-content {
+    padding: 16px;
+    position: relative;
+    z-index: 1;
+  }
+}

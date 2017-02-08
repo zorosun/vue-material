@@ -169,9 +169,24 @@
                 <md-list-item class="md-inset">
                   <router-link exact to="/ui-elements/typography">Typography</router-link>
                 </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link exact to="/templates/app-template">App Template</router-link>
+                </md-list-item>
               </md-list>
             </md-list-expand>
           </md-list-item>
+
+          <!-- <md-list-item>
+            <span>Templates</span>
+            <md-list-expand>
+              <md-list>
+                <md-list-item class="md-inset">
+                  <router-link exact to="/templates/app-template">App Template</router-link>
+                </md-list-item>
+              </md-list>
+            </md-list-expand>
+          </md-list-item> -->
 
           <md-list-item>
             <router-link exact to="/changelog">Changelog</router-link>

@@ -5,6 +5,10 @@ const About = (r) => require.ensure([], () => r(require('./pages/About')), 'base
 const Changelog = (r) => require.ensure([], () => r(require('./pages/Changelog')), 'base');
 const Error404 = (r) => require.ensure([], () => r(require('./pages/Error')), 'base');
 
+/* Themes */
+const Configuration = (r) => require.ensure([], () => r(require('./pages/themes/Configuration')), 'themes');
+const DynamicThemes = (r) => require.ensure([], () => r(require('./pages/themes/DynamicThemes')), 'themes');
+
 /* Components */
 const Avatar = (r) => require.ensure([], () => r(require('./pages/components/Avatar')), 'avatar');
 const BottomBar = (r) => require.ensure([], () => r(require('./pages/components/BottomBar')), 'bottom-bar');
@@ -40,9 +44,8 @@ const Whiteframe = (r) => require.ensure([], () => r(require('./pages/components
 const Typography = (r) => require.ensure([], () => r(require('./pages/ui-elements/Typography')), 'ui-elements');
 const Layout = (r) => require.ensure([], () => r(require('./pages/ui-elements/Layout')), 'ui-elements');
 
-/* Themes */
-const Configuration = (r) => require.ensure([], () => r(require('./pages/themes/Configuration')), 'themes');
-const DynamicThemes = (r) => require.ensure([], () => r(require('./pages/themes/DynamicThemes')), 'themes');
+/* Templates */
+const AppTemplate = (r) => require.ensure([], () => r(require('./pages/templates/AppTemplate')), 'templates');
 
 const main = [
   {
@@ -64,6 +67,24 @@ const main = [
     path: '/changelog',
     name: 'changelog',
     component: Changelog
+  }
+];
+
+const theme = [
+  {
+    path: '/themes',
+    name: 'themes',
+    redirect: '/themes/configuration'
+  },
+  {
+    path: '/themes/configuration',
+    name: 'themes:configuration',
+    component: Configuration
+  },
+  {
+    path: '/themes/dynamic-themes',
+    name: 'themes:dynamic-themes',
+    component: DynamicThemes
   }
 ];
 
@@ -220,24 +241,6 @@ const components = [
   }
 ];
 
-const theme = [
-  {
-    path: '/themes',
-    name: 'themes',
-    redirect: '/themes/configuration'
-  },
-  {
-    path: '/themes/configuration',
-    name: 'themes:configuration',
-    component: Configuration
-  },
-  {
-    path: '/themes/dynamic-themes',
-    name: 'themes:dynamic-themes',
-    component: DynamicThemes
-  }
-];
-
 const uiElements = [
   {
     path: '/ui-elements',
@@ -256,6 +259,19 @@ const uiElements = [
   }
 ];
 
+const templates = [
+  {
+    path: '/templates',
+    name: 'templates',
+    redirect: '/templates/app-template'
+  },
+  {
+    path: '/templates/app-template',
+    name: 'templates:app-template',
+    component: AppTemplate
+  }
+];
+
 const error = [
   {
     path: '*',
@@ -264,4 +280,4 @@ const error = [
   }
 ];
 
-export default [].concat(main, components, theme, uiElements, error);
+export default [].concat(main, components, theme, uiElements, templates, error);
