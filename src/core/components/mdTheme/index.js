@@ -140,36 +140,17 @@ export default function install(Vue) {
   Vue.material.registerTheme = function(name, spec) {
     let theme = {};
 
-<<<<<<< HEAD
     if (typeof name === 'string') {
       theme[name] = spec;
     } else {
       theme = name;
     }
-=======
-        registerAllThemes(theme, this.styles);
-      },
-      applyCurrentTheme(themeName) {
-        changeHtmlMetaColor(registeredPrimaryColor[themeName]);
-        document.body.classList.remove('md-theme-' + this.currentTheme);
-        document.body.classList.add('md-theme-' + themeName);
-        this.currentTheme = themeName;
-      },
-      setCurrentTheme(themeName) {
-        if (registeredThemes.indexOf(themeName) >= 0) {
-          this.applyCurrentTheme(themeName);
-        } else {
-          if (registeredThemes.indexOf('default') === -1) {
-            this.registerTheme('default', DEFAULT_THEME_COLORS);
-          } else {
-            console.warn(`The theme '${themeName}' doesn't exists. You need to register it first in order to use.`);
-          }
->>>>>>> origin/develop
 
     registerAllThemes(theme, this.styles);
   };
 
   Vue.material.applyCurrentTheme = function(themeName) {
+    changeHtmlMetaColor(registeredPrimaryColor[themeName]);
     document.body.classList.remove('md-theme-' + this.currentTheme);
     document.body.classList.add('md-theme-' + themeName);
     this.currentTheme = themeName;
