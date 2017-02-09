@@ -4,9 +4,10 @@
   display: flex;
   flex-flow: column;
   overflow: auto;
+  position: relative;
 
   &.md-fixed {
-    overflow: auto;
+    overflow: hidden;
 
     .md-content {
       overflow: auto;
@@ -15,6 +16,17 @@
 
   &.md-scroll-reveal {
     transform: translateZ(0);
+    transition: $swift-ease-in-out;
+
+    .md-toolbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      transform: translate3D(0, 0, 0);
+      transition: $swift-ease-out;
+      transition-property: transform;
+    }
   }
 
   .md-toolbar {
