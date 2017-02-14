@@ -1,6 +1,9 @@
 @import '../../core/stylesheets/variables.scss';
 @import '../../core/stylesheets/mixins.scss';
 
+$month-width: 356px;
+$month-small-width: 280px;
+
 .md-datepicker {
   display: flex;
   flex: 1;
@@ -9,8 +12,27 @@
     cursor: pointer;
   }
 
-  input::-webkit-calendar-picker-indicator{
+  @mixin disable-input-controls {
     display: none;
+    -webkit-appearance: none;
+  }
+
+  input {
+    &:-ms-clear {
+      @include disable-input-controls;
+    }
+
+    &::-webkit-clear-button {
+      @include disable-input-controls;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      @include disable-input-controls;
+    }
+
+    &::-webkit-inner-spin-button {
+      @include disable-input-controls;
+    }
   }
 }
 
@@ -106,17 +128,50 @@
 }
 
 .md-datepicker-calendar {
-  padding: 8px;
+  margin: 8px;
+  overflow: hidden;
   text-align: center;
+
+  .md-button {
+    margin: 0;
+  }
 
   .md-datepicker-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 2;
   }
 
-  .md-button {
-    margin: 0;
+  .md-current-date {
+    height: 40px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .md-calendar-container {
+    width: $month-width * 3;
+    display: flex;
+    transform: translate3d(-$month-width, 0, 0);
+    transition: $swift-ease-out;
+
+    @include layout-xsmall {
+      width: $month-small-width * 3;
+      transform: translate3d(-$month-small-width, 0, 0);
+    }
+  }
+
+  .md-datepicker-month {
+    width: $month-width;
+    position: relative;
+    z-index: 1;
+
+    @include layout-xsmall {
+      width: $month-small-width;
+    }
   }
 
   .md-datepicker-week-days {
@@ -143,6 +198,8 @@
       margin: 0;
     }
 
+
+    .md-empty,
     .md-button {
       $button-dense-height: 32px;
 
@@ -152,10 +209,7 @@
       height: $button-dense-height;
       min-height: $button-dense-height;
       margin: 0 10px;
-      padding: 0;
       flex: 1 1 (100% / 7);
-      transition: $swift-ease-out;
-      font-size: 12px;
       line-height: $button-dense-height;
 
       @include layout-xsmall {
@@ -169,8 +223,14 @@
         margin: 0;
         line-height: $button-height;
       }
+    }
 
-      &:not(.md-empty):hover,
+    .md-button {
+      padding: 0;
+      transition: $swift-ease-out;
+      font-size: 12px;
+
+      &:hover,
       &.md-selected,
       &.md-today {
         font-weight: 700;
@@ -192,12 +252,17 @@
 }
 
 .md-datepicker-year {
-  min-width: 68px;
-  margin: 8px 0;
+  min-width: 60px;
+  margin: 8px 4px;
+  padding: 0;
   flex: 1;
 
   &.md-primary {
     font-weight: 900;
+
+    &.md-raised {
+      box-shadow: none;
+    }
 
     @include layout-xsmall {
       font-size: 22px;

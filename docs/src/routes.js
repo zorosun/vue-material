@@ -13,7 +13,7 @@ const ButtonToggle = (r) => require.ensure([], () => r(require('./pages/componen
 const Card = (r) => require.ensure([], () => r(require('./pages/components/Card')), 'card');
 const Checkbox = (r) => require.ensure([], () => r(require('./pages/components/Checkbox')), 'checkbox');
 const Chips = (r) => require.ensure([], () => r(require('./pages/components/Chips')), 'chips');
-const DatePicker = (r) => require.ensure([], () => r(require('./pages/components/DatePicker')), 'date-picker');
+const Datepicker = (r) => require.ensure([], () => r(require('./pages/components/Datepicker')), 'date-picker');
 const Dialog = (r) => require.ensure([], () => r(require('./pages/components/Dialog')), 'dialog');
 const FileComponent = (r) => require.ensure([], () => r(require('./pages/components/File')), 'file');
 const Icon = (r) => require.ensure([], () => r(require('./pages/components/Icon')), 'icon');
@@ -112,7 +112,7 @@ const components = [
   {
     path: '/components/date-picker',
     name: 'components:date-picker',
-    component: DatePicker
+    component: Datepicker
   },
   {
     path: '/components/dialog',

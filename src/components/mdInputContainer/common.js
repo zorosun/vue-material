@@ -48,19 +48,22 @@ export default {
         this.parentContainer.inputLength = newValue ? newValue.length : 0;
       });
     },
-    onFocus() {
+    onFocus($event) {
       if (this.parentContainer) {
         this.parentContainer.isFocused = true;
       }
+
+      this.$emit('focus', $event);
     },
-    onBlur() {
+    onBlur($event) {
       this.parentContainer.isFocused = false;
       this.setParentValue();
+      this.$emit('blur', $event);
     },
-    onInput() {
+    onInput($event) {
       this.updateValues();
-      this.$emit('change', this.$el.value);
-      this.$emit('input', this.$el.value);
+      this.$emit('change', this.$el.value, $event);
+      this.$emit($event.type, this.$el.value, $event);
     }
   }
 };

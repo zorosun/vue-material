@@ -44,7 +44,7 @@
         color: #{'PRIMARY-COLOR'};
       }
 
-      .md-button:not(.md-empty):hover,
+      .md-button:hover,
       .md-selected {
         background-color: #{'PRIMARY-COLOR'};
         color: #{'PRIMARY-CONTRAST'};
