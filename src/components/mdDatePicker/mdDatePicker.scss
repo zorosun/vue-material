@@ -125,6 +125,14 @@ $month-small-width: 280px;
   @include layout-xsmall {
     width: 296px;
   }
+
+  .md-button {
+    margin: 0;
+
+    &.md-primary.md-raised {
+      box-shadow: none;
+    }
+  }
 }
 
 .md-datepicker-calendar {
@@ -132,46 +140,100 @@ $month-small-width: 280px;
   overflow: hidden;
   text-align: center;
 
-  .md-button {
-    margin: 0;
-  }
-
   .md-datepicker-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 2;
-  }
 
-  .md-current-date {
-    height: 40px;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .md-button {
+      position: relative;
+      z-index: 2;
+    }
   }
 
   .md-calendar-container {
-    width: $month-width * 3;
-    display: flex;
-    transform: translate3d(-$month-width, 0, 0);
-    transition: $swift-ease-out;
+    width: 999em;
+    transform: translate3d(0, 0, 0);
 
-    @include layout-xsmall {
-      width: $month-small-width * 3;
-      transform: translate3d(-$month-small-width, 0, 0);
+    &.md-previous .md-datepicker-month {
+      &.slide-month-enter-active,
+      &.slide-month-leave-to {
+        transform: translate3D(-200%, 0, 0);
+
+        .md-current-date {
+          transform: translate3d(-110%, 0, 0);
+        }
+      }
+
+      &.slide-month-enter-to,
+      &.slide-month-leave-active {
+        transform: translate3D(-100%, 0, 0);
+
+        .md-current-date {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      &.slide-month-leave-to {
+        opacity: 0;
+        transform: translate3D(100%, 0, 0);
+      }
+    }
+
+    &.md-next .md-datepicker-month {
+      &.slide-month-enter-active,
+      &.slide-month-leave-to {
+        .md-current-date {
+          transform: translate3d(110%, 0, 0);
+        }
+      }
+
+      &.slide-month-enter-to,
+      &.slide-month-leave-active {
+        .md-current-date {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      &.slide-month-enter-to,
+      &.slide-month-leave-to {
+        transform: translate3D(-100%, 0, 0);
+      }
+
+      &.slide-month-leave-to {
+        opacity: 0;
+      }
     }
   }
 
   .md-datepicker-month {
     width: $month-width;
-    position: relative;
-    z-index: 1;
+    margin-top: -40px;
+    float: left;
+    overflow: hidden;
 
     @include layout-xsmall {
       width: $month-small-width;
     }
+
+    &.slide-month-enter,
+    &.slide-month-enter-active,
+    &.slide-month-leave-active {
+      transition: $swift-ease-out;
+    }
+  }
+
+  .md-current-date {
+    width: calc(100% - 96px);
+    height: 40px;
+    margin: 0 48px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: $swift-ease-out;
+    font-weight: 400;
+    text-transform: none;
   }
 
   .md-datepicker-week-days {
@@ -249,23 +311,36 @@ $month-small-width: 280px;
   @include layout-xsmall {
     flex-flow: column;
   }
+
+  .md-datepicker-year {
+    min-width: 60px;
+    margin: 8px 4px;
+    padding: 0;
+    flex: 1;
+
+    &.md-primary {
+      font-weight: 900;
+
+      @include layout-xsmall {
+        font-size: 22px;
+      }
+    }
+  }
 }
 
-.md-datepicker-year {
-  min-width: 60px;
-  margin: 8px 4px;
-  padding: 0;
-  flex: 1;
+.md-datepicker-months {
+  padding: 0 8px 7px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
 
-  &.md-primary {
-    font-weight: 900;
+  @include layout-xsmall {
+    flex-flow: column;
+  }
 
-    &.md-raised {
-      box-shadow: none;
-    }
-
-    @include layout-xsmall {
-      font-size: 22px;
-    }
+  .md-datepicker-month {
+    margin: 8px 4px;
+    padding: 0;
+    flex: 1 1 calc(33.333% - 8px);
   }
 }

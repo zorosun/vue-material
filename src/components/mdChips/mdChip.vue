@@ -3,7 +3,7 @@
     <slot></slot>
 
     <md-button
-      class="md-icon-button md-dense md-delete"
+      class="md-icon-button md-dense md-delete md-input-action"
       v-if="mdDeletable"
       @click.native="!disabled && $emit('delete')"
       @keyup.native.delete="!disabled && $emit('delete')"

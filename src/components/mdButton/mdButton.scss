@@ -96,12 +96,6 @@ $button-icon-size: 40px;
     border-radius: 50%;
     line-height: 24px;
 
-    &:not([disabled]) {
-      &:hover {
-        background: none;
-      }
-    }
-
     &.md-dense {
       width: $button-dense-height;
       min-width: $button-dense-height;

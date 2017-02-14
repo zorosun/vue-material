@@ -10,6 +10,17 @@
       }
     }
 
+    &.md-select-month {
+      .md-datepicker-year-select,
+      .md-datepicker-date-select {
+        color: #{'PRIMARY-CONTRAST-0.54'};
+
+        &:hover {
+          color: #{'PRIMARY-CONTRAST-0.87'};
+        }
+      }
+    }
+
     &.md-select-year {
       .md-datepicker-date-select {
         color: #{'PRIMARY-CONTRAST-0.54'};
