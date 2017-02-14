@@ -19,7 +19,6 @@
         :disabled="disabled"
         @keydown.native.delete="deleteLastChip"
         @keydown.native.prevent.enter="addChip"
-        @keydown.native.prevent.186="addChip"
         tabindex="0"
         ref="input">
       </md-input>
@@ -34,6 +33,7 @@
   import uniqueId from '../../core/utils/uniqueId';
 
   export default {
+    name: 'md-chips',
     props: {
       value: Array,
       disabled: Boolean,
