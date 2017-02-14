@@ -41,11 +41,11 @@
               <md-button class="md-current-date" @click.native="showMonthPicker">{{ locale.months[month.getMonth()] }} {{ month.getFullYear() }}</md-button>
 
               <div class="md-datepicker-week-days">
-                <span v-for="day in locale.shorterDays">{{ day }}</span>
+                <span v-for="day in locale.shorterDays" v-once>{{ day }}</span>
               </div>
 
               <div class="md-datepicker-days">
-                <span class="md-empty" v-for="day in startOfMonth(month).getDay()"></span>
+                <span class="md-empty" v-for="day in startOfMonth(month).getDay()" v-once></span>
 
                 <md-button
                   class="md-icon-button"
@@ -55,7 +55,8 @@
                     'md-today': isToday(day),
                     'md-selected': isSelectedDay(day)
                   }"
-                  @click.native="setDate(day)">
+                  @click.native="setDate(day)"
+                  v-once>
                   {{ day }}
                 </md-button>
               </div>
