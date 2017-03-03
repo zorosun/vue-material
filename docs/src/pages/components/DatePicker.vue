@@ -53,7 +53,7 @@
 <script>
   export default {
     data: () => ({
-      date: new Date()
+      date: new Date('2018-05-20')
     })
   };
 </script>
