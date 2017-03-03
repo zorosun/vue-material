@@ -7,13 +7,17 @@
 <style lang="scss" src="./mdInkRipple.scss"></style>
 
 <script>
+  import supportsPassiveEvent from '../../utils/supportsPassiveEvent';
+
+  const passiveEvent = supportsPassiveEvent ? { passive: true } : false;
+
   const addEvent = (target, type, handler) => {
     if (type === 'start') {
-      target.addEventListener('mousedown', handler);
-      target.addEventListener('touchstart', handler);
+      target.addEventListener('mousedown', handler, passiveEvent);
+      target.addEventListener('touchstart', handler, passiveEvent);
     } else {
-      target.addEventListener('mouseup', handler);
-      target.addEventListener('touchend', handler);
+      target.addEventListener('mouseup', handler, passiveEvent);
+      target.addEventListener('touchend', handler, passiveEvent);
     }
   };
   const removeEvent = (target, type, handler) => {

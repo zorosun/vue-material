@@ -5,12 +5,14 @@ import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 import baseWebpackConfig from './base';
 import config from '../config';
 
+delete config.babelrc.presets[0][1].modules;
+
 Object.keys(baseWebpackConfig.entry).forEach((name) => {
   baseWebpackConfig.entry[name] = ['./build/server/client', ...[baseWebpackConfig.entry[name]]];
 });
 
 export default merge(baseWebpackConfig, {
-  devtool: '#cheap-module-eval-source-map',
+  devtool: '#eval-source-map',
   module: {
     rules: [
       {
@@ -24,6 +26,12 @@ export default merge(baseWebpackConfig, {
         }
       },
       {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        query: config.babelrc,
+        exclude: /node_modules/
+      },
+      {
         test: /\.css$/,
         use: ['vue-style-loader', 'css-loader']
       },
@@ -34,6 +42,10 @@ export default merge(baseWebpackConfig, {
     ]
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: true
+    }),
     new webpack.WatchIgnorePlugin([config.nodePath]),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

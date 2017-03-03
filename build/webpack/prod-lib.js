@@ -55,11 +55,17 @@ export default merge(baseConfig, {
           },
           postcss: [
             autoprefixer({
-              browsers: ['last 3 versions', 'not IE < 10']
+              browsers: ['last 4 versions', 'not IE < 10']
             }),
             mediaPacker()
           ]
         }
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        query: config.babelrc,
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
@@ -89,7 +95,7 @@ export default merge(baseConfig, {
   plugins: [
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-      debug: false
+      debug: true
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

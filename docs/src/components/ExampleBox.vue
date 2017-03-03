@@ -164,7 +164,6 @@ var App = new Vue({
         this.codeString = JSON.stringify(data).replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 
         this.$nextTick(() => {
-          console.log(this.$refs.initialJs);
           this.$refs.form.submit();
         });
       }

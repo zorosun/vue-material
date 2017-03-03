@@ -28,24 +28,10 @@ export default {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [
-          resolvePath('build'),
-          resolvePath('src'),
-          resolvePath('docs')
-        ],
         options: {
           fix: true,
           formatter: eslintFormatter
         }
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [
-          resolvePath('build'),
-          resolvePath('src'),
-          resolvePath('docs')
-        ]
       },
       {
         test: /\.theme$/,

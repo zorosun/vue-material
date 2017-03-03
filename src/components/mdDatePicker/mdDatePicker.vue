@@ -47,8 +47,8 @@
               <div class="md-datepicker-days">
                 <span class="md-empty" v-for="day in startOfMonth(month).getDay()" v-once></span>
 
-                <md-button
-                  class="md-icon-button"
+                <button
+                  class="md-button md-icon-button"
                   v-for="day in getDaysInMonth(month)"
                   :key="day"
                   :class="{
@@ -57,15 +57,16 @@
                   }"
                   @click.native="setDate(day)"
                   v-once>
+                  <md-ink-ripple />
                   {{ day }}
-                </md-button>
+                </button>
               </div>
             </div>
           </transition-group>
         </div>
 
         <div class="md-datepicker-years" v-show="currentView === 'year'">
-          <md-button
+          <button
             class="md-dense md-datepicker-year"
             v-for="year in visibleYears()"
             :key="year"
@@ -77,13 +78,14 @@
               'data-' + year
             ]"
             @click.native="setYear(year)">
+            <md-ink-ripple />
             {{ year }}
-          </md-button>
+          </button>
         </div>
 
         <div class="md-datepicker-months" v-show="currentView === 'month'">
-          <md-button
-            class="md-dense md-datepicker-month"
+          <button
+            class="md-button md-dense md-datepicker-month"
             v-for="(month, index) in locale.months"
             :key="month"
             :class="{
@@ -91,8 +93,9 @@
               'md-primary md-raised': isSelectedMonth(index),
             }"
             @click.native="setMonth(index)">
+            <md-ink-ripple />
             {{ month }}
-          </md-button>
+          </button>
         </div>
 
         <div class="md-datepicker-actions md-dialog-actions">
