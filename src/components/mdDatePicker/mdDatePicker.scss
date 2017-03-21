@@ -57,7 +57,7 @@ $month-small-width: 280px;
   opacity: 0;
   transform: translate3D(0, -16px, 0);
   transition: opacity $swift-ease-out-duration $swift-ease-out-timing-function,
-              transform .8s $swift-ease-out-timing-function;
+              transform $swift-ease-out-duration $swift-ease-out-timing-function;
 
   @include layout-small {
     box-shadow: $material-shadow-14dp;

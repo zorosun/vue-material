@@ -123,6 +123,7 @@
   import isToday from 'date-fns/is_today';
   import isSameDay from 'date-fns/is_same_day';
   import isThisMonth from 'date-fns/is_this_month';
+  import isThisYear from 'date-fns/is_this_year';
   import isBefore from 'date-fns/is_before';
   import isValidDate from 'date-fns/is_valid';
 
@@ -203,6 +204,9 @@
       isThisMonth(month) {
         return isThisMonth(setMonth(new Date(), month));
       },
+      isThisYear(year) {
+        return isThisYear(setYear(new Date(), year));
+      },
       isToday(day) {
         return isToday(setDate(this.currentDate, day));
       },
@@ -216,13 +220,13 @@
         return isSameDay(this.selectedDate, setYear(this.selectedDate, year));
       },
       setYear(year) {
-        this.setModelValue(setYear(this.selectedDate, year));
+        this.setModelValue(setYear(this.currentDate, year));
       },
       setDate(day) {
-        this.setModelValue(setDate(this.selectedDate, day));
+        this.setModelValue(setDate(this.currentDate, day));
       },
       setMonth(month) {
-        this.setModelValue(setMonth(this.selectedDate, month));
+        this.setModelValue(setMonth(this.currentDate, month));
       },
       setModelValue(date) {
         this.selectedDate = date;
@@ -269,8 +273,7 @@
           this.pickerElement.removeEventListener(transitionEndEventName, cleanUp);
           this.rootElement.removeChild(this.pickerElement);
           this.rootElement.removeChild(this.backdropElement);
-          this.currentDate = null;
-          this.selectedDate = null;
+          this.currentDate = new Date();
         };
 
         window.removeEventListener('resize', this.calculatePopupPosition);
