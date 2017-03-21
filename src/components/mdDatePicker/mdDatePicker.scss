@@ -306,46 +306,58 @@ $month-small-width: 280px;
   }
 }
 
-.md-datepicker-years {
+.md-datepicker-years,
+.md-datepicker-months {
   max-height: 260px;
   padding: 0 8px 7px;
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid rgba(#000, .12);
 
   @include layout-xsmall {
-    flex-flow: column;
+    flex-flow: column nowrap;
+    align-items: center;
   }
+}
 
+.md-datepicker-years {
   .md-datepicker-year {
     min-width: 60px;
     margin: 8px 4px;
     padding: 0;
     flex: 1;
 
+    @include layout-xsmall {
+      max-width: 128px;
+      padding: 0 16px;
+    }
+
     &.md-primary {
       font-weight: 900;
 
       @include layout-xsmall {
-        font-size: 22px;
+        font-size: 20px;
       }
     }
   }
 }
 
 .md-datepicker-months {
-  padding: 0 8px 7px;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: auto;
-
-  @include layout-xsmall {
-    flex-flow: column;
-  }
-
   .md-datepicker-month {
     margin: 8px 4px;
     padding: 0;
     flex: 1 1 calc(33.333% - 8px);
+    font-weight: 500;
+
+    @include layout-xsmall {
+      flex: 1;
+    }
+
+    &.md-primary {
+      font-weight: 900;
+    }
   }
 }

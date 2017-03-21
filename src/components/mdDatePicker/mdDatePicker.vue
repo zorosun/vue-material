@@ -55,8 +55,7 @@
                     'md-current': isToday(day),
                     'md-selected': isSelectedDay(day)
                   }"
-                  @click="setDate(day)"
-                  v-once>
+                  @click="setDate(day)">
                   {{ day }}
                 </button>
               </div>
@@ -124,7 +123,6 @@
   import isToday from 'date-fns/is_today';
   import isSameDay from 'date-fns/is_same_day';
   import isThisMonth from 'date-fns/is_this_month';
-  import isThisYear from 'date-fns/is_this_year';
   import isBefore from 'date-fns/is_before';
   import isValidDate from 'date-fns/is_valid';
 
@@ -160,8 +158,8 @@
           return years;
         },
         modelDate: this.value,
-        currentDate: parseDate(this.value),
-        selectedDate: parseDate(this.value),
+        currentDate: isValidDate(this.value) ? parseDate(this.value) : Date.now(),
+        selectedDate: isValidDate(this.value) ? parseDate(this.value) : Date.now(),
         createdMonths: [
           addMonths(this.value, -1),
           this.value,
@@ -202,9 +200,6 @@
       getDaysInMonth(month) {
         return getDaysInMonth(month);
       },
-      isThisYear(year) {
-        return isThisYear(setYear(new Date(), year));
-      },
       isThisMonth(month) {
         return isThisMonth(setMonth(new Date(), month));
       },
@@ -212,7 +207,7 @@
         return isToday(setDate(this.currentDate, day));
       },
       isSelectedDay(day) {
-        return isSameDay(this.selectedDate, setDate(this.currentDate, day));
+        return isSameDay(this.selectedDate, setDate(this.selectedDate, day));
       },
       isSelectedMonth(month) {
         return isSameDay(this.selectedDate, setMonth(this.selectedDate, month));
@@ -231,7 +226,6 @@
       },
       setModelValue(date) {
         this.selectedDate = date;
-        this.currentDate = date;
         this.$emit('input', date);
       },
       changeValue() {
@@ -267,12 +261,16 @@
         getComputedStyle(this.pickerElement).top;
         getComputedStyle(this.backdropElement).top;
         this.active = true;
+        this.currentDate = parseDate(this.value);
+        this.selectedDate = parseDate(this.value);
       },
       closePicker() {
         const cleanUp = () => {
           this.pickerElement.removeEventListener(transitionEndEventName, cleanUp);
           this.rootElement.removeChild(this.pickerElement);
           this.rootElement.removeChild(this.backdropElement);
+          this.currentDate = null;
+          this.selectedDate = null;
         };
 
         window.removeEventListener('resize', this.calculatePopupPosition);
