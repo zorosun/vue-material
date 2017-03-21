@@ -81,6 +81,13 @@ $month-small-width: 280px;
       transform: translate3d(-50%, -50%, 0);
     }
   }
+
+  .md-button {
+    &.md-selected,
+    &.md-current {
+      font-weight: 700;
+    }
+  }
 }
 
 .md-datepicker-header {
@@ -292,9 +299,7 @@ $month-small-width: 280px;
       transition: $swift-ease-out;
       font-size: 12px;
 
-      &:hover,
-      &.md-selected,
-      &.md-today {
+      &:hover {
         font-weight: 700;
       }
     }

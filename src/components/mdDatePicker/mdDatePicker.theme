@@ -47,19 +47,19 @@
     .md-datepicker-days {
       color: #{'BACKGROUND-CONTRAST-0.8'};
 
-      .md-ink-ripple {
-        color: #{'PRIMARY-CONTRAST'};
-      }
-
-      .md-today {
-        color: #{'PRIMARY-COLOR'};
-      }
-
-      .md-button:hover,
-      .md-selected {
+      .md-button:hover {
         background-color: #{'PRIMARY-COLOR'};
         color: #{'PRIMARY-CONTRAST'};
       }
     }
+  }
+
+  .md-button.md-current:not(.md-raised) {
+    color: #{'PRIMARY-COLOR'};
+  }
+
+  .md-button.md-selected:not(.md-raised) {
+    background-color: #{'PRIMARY-COLOR'};
+    color: #{'PRIMARY-CONTRAST'};
   }
 }

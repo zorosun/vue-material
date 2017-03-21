@@ -27,13 +27,13 @@
       <div class="md-datepicker-body">
         <div class="md-datepicker-calendar" v-show="currentView === 'date'">
           <div class="md-datepicker-controls">
-            <md-button class="md-icon-button" @click.native="previousMonth">
+            <button class="md-button md-icon-button" @click="previousMonth">
               <md-icon>keyboard_arrow_left</md-icon>
-            </md-button>
+            </button>
 
-            <md-button class="md-icon-button" @click.native="nextMonth">
+            <button class="md-button md-icon-button" @click="nextMonth">
               <md-icon>keyboard_arrow_right</md-icon>
-            </md-button>
+            </button>
           </div>
 
           <transition-group tag="div" name="slide-month" appear class="md-calendar-container" :class="{ 'md-previous': lastAction === 'previous', 'md-next': lastAction === 'next' }">
@@ -47,52 +47,52 @@
               <div class="md-datepicker-days">
                 <span class="md-empty" v-for="day in startOfMonth(month).getDay()" v-once></span>
 
-                <md-button
-                  class="md-icon-button"
+                <button
+                  class="md-button md-icon-button"
                   v-for="day in getDaysInMonth(month)"
                   :key="day"
                   :class="{
-                    'md-today': isToday(day),
+                    'md-current': isToday(day),
                     'md-selected': isSelectedDay(day)
                   }"
-                  @click.native="setDate(day)"
+                  @click="setDate(day)"
                   v-once>
                   {{ day }}
-                </md-button>
+                </button>
               </div>
             </div>
           </transition-group>
         </div>
 
         <div class="md-datepicker-years" v-show="currentView === 'year'">
-          <md-button
-            class="md-dense md-datepicker-year"
+          <button
+            class="md-button md-dense md-datepicker-year"
             v-for="year in visibleYears()"
             :key="year"
             :class="[
               {
-                'md-primary': isThisYear(year),
-                'md-primary md-raised': isSelectedYear(year),
+                'md-current': isThisYear(year),
+                'md-selected': isSelectedYear(year),
               },
               'data-' + year
             ]"
-            @click.native="setYear(year)">
+            @click="setYear(year)">
             {{ year }}
-          </md-button>
+          </button>
         </div>
 
         <div class="md-datepicker-months" v-show="currentView === 'month'">
-          <md-button
-            class="md-dense md-datepicker-month"
+          <button
+            class="md-button md-dense md-datepicker-month"
             v-for="(month, index) in locale.months"
             :key="month"
             :class="{
-              'md-primary': isThisMonth(index),
-              'md-primary md-raised': isSelectedMonth(index),
+              'md-current': isThisMonth(index),
+              'md-selected': isSelectedMonth(index),
             }"
-            @click.native="setMonth(index)">
+            @click="setMonth(index)">
             {{ month }}
-          </md-button>
+          </button>
         </div>
 
         <div class="md-datepicker-actions md-dialog-actions">
@@ -206,7 +206,7 @@
         return isThisYear(setYear(new Date(), year));
       },
       isThisMonth(month) {
-        return isThisMonth(setYear(new Date(), month));
+        return isThisMonth(setMonth(new Date(), month));
       },
       isToday(day) {
         return isToday(setDate(this.currentDate, day));
