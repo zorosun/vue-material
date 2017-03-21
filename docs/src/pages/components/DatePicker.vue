@@ -33,6 +33,10 @@
             <md-input-container>
               <md-datepicker v-model="date" />
             </md-input-container>
+
+            <md-input-container>
+              <md-datepicker v-model="date" md-open-on-focus />
+            </md-input-container>
           </div>
 
           <div slot="code">
