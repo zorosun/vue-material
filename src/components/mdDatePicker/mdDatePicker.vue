@@ -41,11 +41,11 @@
               <md-button class="md-current-date" @click.native="showMonthPicker">{{ locale.months[month.getMonth()] }} {{ month.getFullYear() }}</md-button>
 
               <div class="md-datepicker-week-days">
-                <span v-for="day in locale.shorterDays" v-once>{{ day }}</span>
+                <span v-for="day in locale.shorterDays" :key="day" v-once>{{ day }}</span>
               </div>
 
               <div class="md-datepicker-days">
-                <span class="md-empty" v-for="day in startOfMonth(month).getDay()" v-once></span>
+                <span class="md-empty" v-for="day in startOfMonth(month).getDay()" :key="day" v-once></span>
 
                 <button
                   class="md-button md-icon-button"
@@ -328,6 +328,7 @@
       this.$nextTick(() => {
         this.rootElement = this.$root.$el;
         this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
+        this.parentContainer.inputInstance = this;
         this.pickerElement = this.$refs.pickerElement;
         this.backdropElement = this.$refs.pickerBackdrop.$el;
         this.pickerElement.parentNode.removeChild(this.pickerElement);
