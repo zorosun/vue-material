@@ -4,6 +4,11 @@ export default new Vue({
   data: () => ({
     styles: [],
     currentTheme: null,
+    prefix: 'md-theme-',
+    styles: [],
+    themes: {
+      default: DEFAULT_THEME_COLORS
+    },
     inkRipple: true,
     locale: {
       startYear: 1900,
@@ -16,5 +21,10 @@ export default new Vue({
       shortMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
       shorterMonths: ['J', 'F', 'M', 'A', 'M', 'Ju', 'Ju', 'A', 'Se', 'O', 'N', 'D']
     }
-  })
+  }),
+  watch: {
+    styles() {
+      this.refreshInjectedStyles();
+    }
+  }
 });

@@ -28,9 +28,9 @@
   </a>
 </p>
 
-Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. 
+Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs.
 
-It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to all modern Web Browsers through Vue 2. 
+It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to all modern Web Browsers through Vue 2.
 
 Build powerful and well-designed web apps that can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
 
@@ -114,11 +114,11 @@ Vue Material supports the latest version of all Browsers. This means:
 * Thanks a lot to <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
 * Thanks to <a href="https://github.com/yyx990803" target="_blank">Evan You</a> for allowing me to use Vue.js Logo.
 
-## Internal Dependencies 
+## Internal Dependencies
 You don't need to include any other library to work with vue-material. The focus of this project is to have a standalone build with no external dependence, but aiming to deliver the best experience without break the compatibility with the Vue.js core.
 * <a href="http://vuejs.org" target="_blank">vue</a>
 * <a href="http://www.jacklmoore.com/autosize/" target="_blank">autosize</a>
 * <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" target="_blank">element.scrollintoviewifneeded-polyfill</a>
 
-## License 
+## License
 MIT
