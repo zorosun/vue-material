@@ -8,6 +8,12 @@ $month-small-width: 280px;
   display: flex;
   flex: 1;
 
+  &.md-disabled {
+    .md-icon {
+      cursor: default;
+    }
+  }
+
   .md-icon {
     cursor: pointer;
   }

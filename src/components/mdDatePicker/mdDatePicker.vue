@@ -1,5 +1,5 @@
 <template>
-  <div class="md-datepicker">
+  <div class="md-datepicker" :class="{ 'md-disabled': disabled }">
     <md-icon @click.native="openPicker">event</md-icon>
 
     <md-input
@@ -159,8 +159,8 @@
           return years;
         },
         modelDate: this.value,
-        currentDate: isValidDate(this.value) ? parseDate(this.value) : Date.now(),
-        selectedDate: isValidDate(this.value) ? parseDate(this.value) : Date.now(),
+        currentDate: this.parseInitialDate(),
+        selectedDate: this.parseInitialDate(),
         createdMonths: [
           addMonths(this.value, -1),
           this.value,
@@ -192,6 +192,10 @@
     watch: {
       selectedDate(selected) {
         this.modelDate = formatDate(selected, this.locale.dateFormat);
+      },
+      value(value) {
+        this.setModelValue(this.parseInitialDate());
+        this.modelDate = formatDate(value, this.locale.dateFormat);
       }
     },
     methods: {
@@ -228,6 +232,9 @@
       setMonth(month) {
         this.setModelValue(setMonth(this.currentDate, month));
       },
+      parseInitialDate() {
+        return isValidDate(this.value) ? parseDate(this.value) : Date.now();
+      },
       setModelValue(date) {
         this.selectedDate = date;
         this.$emit('input', date);
@@ -258,15 +265,17 @@
         });
       },
       openPicker() {
-        window.addEventListener('resize', this.calculatePopupPosition);
-        this.calculatePopupPosition();
-        this.rootElement.appendChild(this.pickerElement);
-        this.rootElement.appendChild(this.backdropElement);
-        getComputedStyle(this.pickerElement).top;
-        getComputedStyle(this.backdropElement).top;
-        this.active = true;
-        this.currentDate = parseDate(this.value);
-        this.selectedDate = parseDate(this.value);
+        if (!this.disabled) {
+          window.addEventListener('resize', this.calculatePopupPosition);
+          this.calculatePopupPosition();
+          this.rootElement.appendChild(this.pickerElement);
+          this.rootElement.appendChild(this.backdropElement);
+          getComputedStyle(this.pickerElement).top;
+          getComputedStyle(this.backdropElement).top;
+          this.active = true;
+          this.currentDate = parseDate(this.value);
+          this.selectedDate = parseDate(this.value);
+        }
       },
       closePicker() {
         const cleanUp = () => {
