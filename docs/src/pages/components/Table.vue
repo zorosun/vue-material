@@ -523,8 +523,8 @@
                 </md-button>
               </md-table-alternate-header>
 
-              <md-table md-sort="calories">
-                <md-table-header>
+              <md-table md-sort="calories" mdFixedHeader>
+                <md-table-header slot="header">
                   <md-table-row>
                     <md-table-head md-sort-by="dessert">Dessert (100g serving)</md-table-head>
                     <md-table-head md-sort-by="type" width="100px">Type</md-table-head>

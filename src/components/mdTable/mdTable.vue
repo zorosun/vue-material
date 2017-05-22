@@ -1,10 +1,32 @@
-<template>
+<!--<template>
   <div class="md-table" :class="[themeClass]">
     <table>
       <slot></slot>
     </table>
   </div>
+</template>-->
+<template>
+  <div class="md-table" :class="[themeClass]">
+    <div v-if="mdFixedHeader">
+      <table class="md-table-fixed-header" style="box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.08);">
+        <slot name="header"></slot>
+      </table>
+    </div>
+    <div :style="bodyStyle" class="md-table" :class="[themeClass]">
+      <table>
+        <slot v-if="!mdFixedHeader" name="header"></slot>
+        <slot></slot>
+        <slot v-if="!mdFixedFooter" name="footer"></slot>
+      </table>
+    </div>
+    <div v-if="mdFixedFooter">
+      <table>
+        <slot name="footer"></slot>
+      </table>
+    </div>
+  </div>
 </template>
+
 
 <style lang="scss" src="./mdTable.scss"></style>
 
@@ -15,6 +37,8 @@
   export default {
     name: 'md-table',
     props: {
+      mdFixedHeader: Boolean,
+      mdFixedFooter: Boolean,
       mdSortType: String,
       mdSort: String
     },
@@ -29,6 +53,14 @@
         numberOfSelected: 0,
         selectedRows: {}
       };
+    },
+    computed: {
+      bodyStyle() {
+        return {
+          overflow: 'auto',
+          height: this.height
+        };
+      }
     },
     methods: {
       emitSort(name) {
